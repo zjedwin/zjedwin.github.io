@@ -1,6 +1,6 @@
 function stopDrag(ev){
-  ev.target.addEventListener("touchend", ev => {
-    ev.target.removeEventListener("touchmove", stopDrag);
+  ev.target.addEventListener("pointerup", ev => {
+    ev.target.removeEventListener("pointermove", stopDrag);
   });
 
   x_stop = ev.clientX;
@@ -14,9 +14,9 @@ function startDrag(ev){
 
   x_start = ev.clientX;
   y_start = ev.clientY;
-  ev.target.addEventListener("touchmove", stopDrag);
+  ev.target.addEventListener("pointermove", stopDrag);
 }
 
 let x_start, y_start, x_end, y_end;
 const box = document.querySelector(".box");
-box.addEventListener("touchstart", startDrag);
+box.addEventListener("pointerdown", startDrag);
